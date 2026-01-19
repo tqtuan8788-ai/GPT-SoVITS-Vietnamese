@@ -104,11 +104,30 @@ def download_model(model_size: str):
 def execute_asr(input_folder, output_folder, model_path, language, precision):
     if language == "auto":
         language = None  # 不设置语种由模型自动输出概率最高的语种
-    print("loading faster whisper model:", model_path, model_path)
+    
+    # --- DEBUG INFO ---
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    model = WhisperModel(model_path, device=device, compute_type=precision)
+    print(f"\n[INFO] Torch CUDA Available: {torch.cuda.is_available()}")
+    if torch.cuda.is_available():
+        print(f"[INFO] GPU Name: {torch.cuda.get_device_name(0)}")
+    print(f"[INFO] Selected Device for Whisper: {device}")
+    print(f"[INFO] Precision: {precision}")
+    # ------------------
+
+    print("loading faster whisper model:", model_path, model_path)
+
+    try:
+        model = WhisperModel(model_path, device=device, compute_type=precision)
+    except Exception as e:
+        print(f"\n[ERROR] Failed to load WhisperModel on {device}. Error: {e}")
+        if device == "cuda":
+            print("[WARNING] Falling back to CPU...")
+            device = "cpu"
+            precision = "float32" # CPU usually requires float32 or int8
+            model = WhisperModel(model_path, device=device, compute_type=precision)
 
     input_file_names = os.listdir(input_folder)
+
     input_file_names.sort()
 
     output = []
