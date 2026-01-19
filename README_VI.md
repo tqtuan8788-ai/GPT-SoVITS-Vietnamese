@@ -13,7 +13,7 @@ Phiên bản tối ưu của [GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS
 
 ### Bước 1: Mở Notebook trên Colab
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/TuanNam/GPT-SoVITS-Vietnamese/blob/main/GPT_SoVITS_Colab_VI.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/tqtuan8788-ai/GPT-SoVITS-Vietnamese/blob/main/GPT_SoVITS_Colab_VI.ipynb)
 
 ### Bước 2: Chạy theo thứ tự
 
