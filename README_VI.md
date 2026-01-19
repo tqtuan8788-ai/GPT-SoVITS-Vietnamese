@@ -8,6 +8,7 @@ Phiên bản tối ưu của [GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS
 - 🚀 Notebook đơn giản 4 cell
 - 📱 Chạy trên Google Colab (T4/A100)
 - 💾 Tích hợp Google Drive backup
+- 🌐 **Hỗ trợ đa ngôn ngữ:** Có thể suy luận (Inference) chéo giữa tiếng Anh, Nhật, Hàn, Trung và **Tiếng Việt**.
 
 ## 🚀 Bắt đầu nhanh
 
