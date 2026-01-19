@@ -133,7 +133,11 @@ def execute_asr(input_folder, output_folder, model_path, language, precision):
             if text == "":
                 for segment in segments:
                     text += segment.text
-            output.append(f"{file_path}|{output_file_name}|{info.language.upper()}|{text}")
+            
+            # PRD Fix: Ensure format is absolute_path|speaker_name|vi|text_content
+            # Force "vi" if language arg is "vi", otherwise use detected
+            lang_tag = "vi" if language == "vi" else info.language
+            output.append(f"{file_path}|{output_file_name}|{lang_tag}|{text}")
         except Exception as e:
             print(e)
             traceback.print_exc()

@@ -7,7 +7,7 @@ from scipy.io import wavfile
 # parent_directory = os.path.dirname(os.path.abspath(__file__))
 # sys.path.append(parent_directory)
 from tools.my_utils import load_audio
-from slicer2 import Slicer
+from tools.slicer2 import Slicer
 
 
 def slice(inp, opt_root, threshold, min_length, min_interval, hop_size, max_sil_kept, _max, alpha, i_part, all_part):
@@ -17,7 +17,7 @@ def slice(inp, opt_root, threshold, min_length, min_interval, hop_size, max_sil_
     elif os.path.isdir(inp):
         input = [os.path.join(inp, name) for name in sorted(list(os.listdir(inp)))]
     else:
-        return "输入路径存在但既不是文件也不是文件夹"
+        return "Input path exists but is neither file nor folder"
     slicer = Slicer(
         sr=32000,  # 长音频采样率
         threshold=int(threshold),  # 音量小于这个值视作静音的备选切割点
@@ -47,7 +47,7 @@ def slice(inp, opt_root, threshold, min_length, min_interval, hop_size, max_sil_
                 )
         except:
             print(inp_path, "->fail->", traceback.format_exc())
-    return "执行完毕，请检查输出文件"
+    return "Execution complete, please check output file"
 
 
 print(slice(*sys.argv[1:]))

@@ -24,13 +24,13 @@ def load_audio(file, sr):
         out, _ = (
             ffmpeg.input(file, threads=0)
             .output("-", format="f32le", acodec="pcm_f32le", ac=1, ar=sr)
-            .run(cmd=["ffmpeg", "-nostdin"], capture_stdout=True, capture_stderr=True)
+            .run(cmd=[r"C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v7.1.exe", "-nostdin"], capture_stdout=True, capture_stderr=True)
         )
     except Exception:
         out, _ = (
             ffmpeg.input(file, threads=0)
             .output("-", format="f32le", acodec="pcm_f32le", ac=1, ar=sr)
-            .run(cmd=["ffmpeg", "-nostdin"], capture_stdout=True)
+            .run(cmd=[r"C:\Users\Admin\AppData\Local\Programs\Python\Python313\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v7.1.exe", "-nostdin"], capture_stdout=True)
         )  # Expose the Error
         raise RuntimeError(i18n("音频加载失败"))
 

@@ -6,7 +6,9 @@ import torch
 
 from tools.i18n.i18n import I18nAuto
 
-i18n = I18nAuto(language=os.environ.get("language", "Auto"))
+# Force language to Vietnamese
+os.environ["language"] = "vi_VN"
+i18n = I18nAuto(language=os.environ.get("language", "vi_VN"))
 
 
 pretrained_sovits_name = {
